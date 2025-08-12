@@ -1,0 +1,15 @@
+.campo-entrada {
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #4a4949;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #ffffff;
+    padding: 8px 16px;
+}
+
+.campo-entrada::placeholder {
+    color: #4a4949;
+    opacity: 1;
+}

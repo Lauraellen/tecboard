@@ -12,3 +12,8 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.acoes {
+    text-align: center;
+    margin-top: 32px;
+}

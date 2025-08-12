@@ -5,6 +5,7 @@ import { TituloFormulario } from '../TtituloFormulario'
 import { CampoDeFormulario } from '../CampoDeFormulario'
 import { CampoDeEntrada } from '../CampoDeEntrada'
 import { Label } from '../Label'
+import { Botao } from '../Botao'
 import './formulario-de-evento.css'
 
 export function FormularioDeEvento() {
@@ -36,6 +37,11 @@ export function FormularioDeEvento() {
                 </CampoDeFormulario>
             </div>
 
+            <div className='acoes'>
+                <Botao>
+                    Criar evento
+                </Botao>
+            </div>
         </form>
     )
 }

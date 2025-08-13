@@ -6,6 +6,7 @@ import { CampoDeFormulario } from '../CampoDeFormulario'
 import { CampoDeEntrada } from '../CampoDeEntrada'
 import { Label } from '../Label'
 import { Botao } from '../Botao'
+import { ListaSuspensa } from '../ListaSuspensa'
 import './formulario-de-evento.css'
 
 export function FormularioDeEvento() {
@@ -34,6 +35,15 @@ export function FormularioDeEvento() {
                         name="dataEvento"
                         placeholder="XX/XX/XXXX"
                     />
+                </CampoDeFormulario>
+
+                <CampoDeFormulario>
+                    <Label htmlFor="temaEvento"> Tema do evento</Label>
+                    <ListaSuspensa>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="negocios">Negócios</option>
+                        <option value="saude">Saúde</option>
+                    </ListaSuspensa>
                 </CampoDeFormulario>
             </div>
 

@@ -40,7 +40,7 @@ react-course-project
 
 1. **Clone the repository**:
    ```bash
-   git clone [tecboard-repository](https://github.com/Lauraellen/tecboard.git)
+   git clone https://github.com/Lauraellen/tecboard.git
    ```
 
 2. **Install dependencies**:

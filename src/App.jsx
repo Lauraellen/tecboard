@@ -1,4 +1,5 @@
 import './App.css'
+import { useState } from 'react'
 import { Banner } from './components/Banner'
 import { CardEvento } from './components/CardEvento'
 import { FormularioDeEvento } from './components/FormularioDeEvento'
@@ -18,9 +19,23 @@ function App() {
     { id: 6, nome: 'cloud' },
   ]
 
-  const eventos = [
-    { capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png', id: 1, tema: temas[0], data: new Date(), titulo: 'Mulheres no front' },
-  ]
+  // useState é um Hook do React que permite adicionar estado a componentes funcionais
+  // useState retorna um array com dois elementos: o estado atual e uma função para atualizá-lo
+  const [eventos, setEventos] = useState([
+    {
+      capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png',
+      id: 1,
+      tema: temas[0],
+      data: new Date(),
+      titulo: 'Mulheres no front'
+    },
+
+  ])
+
+  function adicionarEvento(evento) {
+    eventos.push(evento)
+    setEventos([...eventos, evento]) // Atualiza o estado com o novo evento
+  }
 
   return (
     <main>
@@ -30,16 +45,35 @@ function App() {
 
       <Banner />
 
-      <FormularioDeEvento temas={temas} />
+      <FormularioDeEvento temas={temas} aoSubmeter={adicionarEvento} />
 
-      {temas.map(function (tema) {
-        return (
-          <section key={tema.id} className="tema">
-            <Tema tema={tema} />
-            <CardEvento evento={eventos[0]}></CardEvento>
-          </section>
-        )
-      })}
+      <section className='container'>
+        {temas.map(function (tema) {
+          if (!eventos.some(function (evento) {
+            return evento.tema.id === tema.id
+          })) {
+            return null
+          }
+          return (
+            <section key={tema.id} className="tema">
+              <Tema tema={tema} />
+              <div className='eventos'>
+                {eventos
+                  .filter(function (evento) {
+                    return evento.tema.id === tema.id
+                  })
+                  .map(function (item, index) {
+
+                    return <CardEvento evento={item} key={index} />
+
+                  })}
+              </div>
+            </section>
+          )
+        })}
+      </section>
+
+
     </main >
   )
 }

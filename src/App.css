@@ -8,3 +8,16 @@ header {
   display: flex;
   justify-content: center;
 }
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.eventos {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+
+}
